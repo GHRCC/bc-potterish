@@ -4,6 +4,7 @@ dotenv.config();
 import { createExpressServer, useContainer } from "routing-controllers";
 import { Container } from "typedi";
 import { connect } from "mongoose";
+import { WizardController } from "./wizards/wizard.controller";
 
 useContainer(Container);
 
@@ -11,7 +12,7 @@ const port = process.env.PORT as string;
 const host = process.env.HOST as string;
 
 createExpressServer({
-  controllers: [],
+  controllers: [WizardController],
   cors: true,
 }).listen(port, host, async () => {
   await connect(process.env.DATABASE_URL as string);
