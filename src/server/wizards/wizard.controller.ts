@@ -15,9 +15,36 @@ import { UpdateWizardDto } from "./dtos/update-wizard.dto";
 @JsonController("/wizard") //o prefixo da rota, todos os métodos que eu colocar aqui dentro estão prefixados
 export class WizardController {
   constructor(private readonly wizardService: WizardService) {}
+
+  @Get()
+  async findAll() {
+    const wizards = await this.wizardService.findAll();
+    return wizards;
+  }
+
+  @Get("/:username")
+  async findOne(@Param("username") username: string) {
+    const wizard = await this.wizardService.findOne(username);
+    return wizard;
+  }
   @Post()
   async create(@Body() createWizardDto: CreateWizardDto) {
     const wizard = this.wizardService.create(createWizardDto);
+    return wizard;
+  }
+
+  @Put("/:username")
+  async update(
+    @Param("username") username: string,
+    @Body() updateWizardDto: UpdateWizardDto
+  ) {
+    const wizard = await this.wizardService.update(username, updateWizardDto);
+    return wizard;
+  }
+
+  @Delete("/:username")
+  async delete(@Param("username") username: string) {
+    const wizard = await this.wizardService.delete(username);
     return wizard;
   }
 }
