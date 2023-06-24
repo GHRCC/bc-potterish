@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FiLoader } from "react-icons/fi";
 import { AuthToken } from "../utils/authToken";
 import { successToast } from "../utils/successToast";
-import { useGlobalStore, initialTrainer } from "../utils/useGlobalStore";
+import { useGlobalStore, initialWizard } from "../utils/useGlobalStore";
 import { LinkButton } from "./LinkButton";
 import { Button } from "./Button";
 
@@ -15,11 +15,11 @@ const texts = {
 
 export function AppBar() {
   const navigate = useNavigate();
-  const trainer = useGlobalStore((state) => state.trainer);
+  const wizard = useGlobalStore((state) => state.wizard);
   const isLoading = useGlobalStore((state) => state.isLoading);
   const isAuthenticated = useGlobalStore((state) => state.isAuthenticated);
 
-  const setTrainer = useGlobalStore((state) => state.setTrainer);
+  const setWizard = useGlobalStore((state) => state.setWizard);
   const setIsAuthenticated = useGlobalStore(
     (state) => state.setIsAuthenticated
   );
@@ -27,7 +27,7 @@ export function AppBar() {
   function onLogout() {
     AuthToken.remove();
     setIsAuthenticated(false);
-    setTrainer(initialTrainer);
+    setWizard(initialWizard);
     successToast(texts.logoutSuccess);
     navigate("/");
   }
@@ -54,10 +54,10 @@ export function AppBar() {
         {isAuthenticated && (
           <>
             <Link
-              to="/treinador"
+              to="/wizard"
               className="font-[VT323] text-2xl hover:underline"
             >
-              {trainer.username}
+              {wizard.username}
             </Link>
             <Button onClick={onLogout}>{texts.logoutButtonLabel}</Button>
           </>

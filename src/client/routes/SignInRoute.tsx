@@ -21,17 +21,17 @@ export function SignInRoute() {
   const setIsAuthenticated = useGlobalStore(
     (state) => state.setIsAuthenticated
   );
-  const setTrainer = useGlobalStore((state) => state.setWizard);
+  const setWizard = useGlobalStore((state) => state.setWizard);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const response = await api.post("/auth/sign-in", { username, password });
-    const { token, trainer } = response.data;
+    const { token, wizard } = response.data;
     AuthToken.set(token);
     setIsAuthenticated(true);
-    setTrainer(trainer);
+    setWizard(wizard);
     successToast(texts.signInSuccessMessage);
     navigate("/wizard");
   }

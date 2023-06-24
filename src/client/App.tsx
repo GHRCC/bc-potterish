@@ -8,7 +8,7 @@ import { AppBar } from "./components/AppBar";
 import { AuthChecker } from "./components/AuthChecker";
 import { SignInRoute } from "./routes/SignInRoute";
 import { SignUpRoute } from "./routes/SignUpRoute";
-import { TrainerRoute } from "./routes/WizardRoute";
+import { WizardRoute } from "./routes/WizardRoute";
 
 export function App() {
   return (
@@ -18,7 +18,7 @@ export function App() {
       <Routes>
         <Route path="/" element={<SignInRoute />} />
         <Route path="/criar-conta" element={<SignUpRoute />} />
-        <Route path="/treinador" element={<TrainerRoute />} />
+        <Route path="/wizard" element={<WizardRoute />} />
       </Routes>
     </HistoryRouter>
   );

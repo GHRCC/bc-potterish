@@ -3,10 +3,10 @@ import { Card } from "../components/Card";
 import { Title } from "../components/Title";
 
 const texts = {
-  title: "Minha pokedex",
+  title: "My Spells",
 };
 
-export function TrainerRoute() {
+export function WizardRoute() {
   return (
     <div className="mt-4">
       <Card className="max-w-screen-sm mx-auto my-4">
