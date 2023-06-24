@@ -18,7 +18,7 @@ export class WizardRepository {
     const wizard = await (await Wizard.create(createWizardDto)).toJSON();
     return wizard;
   }
-  async update(updateWizardDto: UpdateWizardDto) {
+  async update(username: string, updateWizardDto: UpdateWizardDto) {
     const wizard = await Wizard.findOneAndUpdate(
       { username },
       updateWizardDto

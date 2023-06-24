@@ -7,8 +7,8 @@ import { UpdateWizardDto } from "./dtos/update-wizard.dto";
 export class WizardService {
   constructor(private readonly wizardRespository: WizardRepository) {}
 
-  async findAll(username: string) {
-    const wizards = await this.wizardRespository.findAll(username);
+  async findAll() {
+    const wizards = await this.wizardRespository.findAll();
     return wizards;
   }
   async findOne(username: string) {
@@ -24,8 +24,13 @@ export class WizardService {
   async update(username: string, updateWizardDto: UpdateWizardDto) {
     const wizard = await this.wizardRespository.update(
       username,
-      UpdateWizardDto
+      updateWizardDto
     );
+    return wizard;
+  }
+
+  async delete(username: string) {
+    const wizard = await this.wizardRespository.delete(username);
     return wizard;
   }
 }
