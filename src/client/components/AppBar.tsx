@@ -7,10 +7,10 @@ import { LinkButton } from "./LinkButton";
 import { Button } from "./Button";
 
 const texts = {
-  appTitle: "Pokemon!",
-  createAccountLink: "Criar conta",
-  logoutButtonLabel: "Sair",
-  logoutSuccess: "Você encerrou sua sessão. Até mais!",
+  appTitle: "Welcome to Hogwarts School of Witchcraft and Wizardry",
+  createAccountLink: "Create your account",
+  logoutButtonLabel: "Sign out",
+  logoutSuccess: "You have signed out. See you later!",
 };
 
 export function AppBar() {

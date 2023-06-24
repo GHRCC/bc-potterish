@@ -9,11 +9,11 @@ import { Title } from "../components/Title";
 import { Button } from "../components/Button";
 
 const texts = {
-  title: "Entrar na sua conta",
-  submit: "Enviar",
-  usernamePlaceholder: "Nome de usuário",
-  passwordPlaceholder: "Senha",
-  signInSuccessMessage: "Você entrou na sua conta!",
+  title: "Log in to your account",
+  submit: "Submit",
+  usernamePlaceholder: "Username",
+  passwordPlaceholder: "Password",
+  signInSuccessMessage: "You have logged in",
 };
 
 export function SignInRoute() {
@@ -21,7 +21,7 @@ export function SignInRoute() {
   const setIsAuthenticated = useGlobalStore(
     (state) => state.setIsAuthenticated
   );
-  const setTrainer = useGlobalStore((state) => state.setTrainer);
+  const setTrainer = useGlobalStore((state) => state.setWizard);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -33,7 +33,7 @@ export function SignInRoute() {
     setIsAuthenticated(true);
     setTrainer(trainer);
     successToast(texts.signInSuccessMessage);
-    navigate("/treinador");
+    navigate("/wizard");
   }
 
   return (

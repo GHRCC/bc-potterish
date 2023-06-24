@@ -4,13 +4,13 @@ import type { IWizard } from "../../server/wizards/wizard.model";
 type GlobalStore = {
   isLoading: boolean;
   isAuthenticated: boolean;
-  trainer: IWizard;
+  wizard: IWizard;
   setIsLoading: (isLoading: boolean) => void;
   setIsAuthenticated: (isAuthenticated: boolean) => void;
-  setTrainer: (trainer: Partial<IWizard>) => void;
+  setWizard: (wizard: Partial<IWizard>) => void;
 };
 
-export const initialTrainer: IWizard = {
+export const initialWizard: IWizard = {
   username: "",
   name: "",
   surname: "",
@@ -20,14 +20,14 @@ export const initialTrainer: IWizard = {
 export const useGlobalStore = create<GlobalStore>((set, get) => ({
   isLoading: false,
   isAuthenticated: false,
-  trainer: initialTrainer,
+  wizard: initialWizard,
   setIsLoading(isLoading) {
     set({ isLoading });
   },
   setIsAuthenticated(isAuthenticated) {
     set({ isAuthenticated });
   },
-  setTrainer(trainer) {
-    set({ trainer: { ...get().trainer, ...trainer } });
+  setWizard(Wizard) {
+    set({ wizard: { ...get().wizard, ...Wizard } });
   },
 }));

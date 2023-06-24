@@ -7,7 +7,7 @@ import { AuthToken } from "./authToken";
 const setIsLoading = useGlobalStore.getState().setIsLoading;
 
 const texts = {
-  authorizationError: "Sua sessão expirou. Por favor, entre novamente.",
+  authorizationError: "Your connection has expired. Please, log in",
 };
 
 export const api = axios.create({
@@ -15,6 +15,7 @@ export const api = axios.create({
 });
 
 api.interceptors.request.use((config) => {
+  // é como se fosse um middleware
   setIsLoading(true);
   const token = AuthToken.get();
   if (token !== null) {
