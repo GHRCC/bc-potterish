@@ -22,6 +22,7 @@ export class AuthService {
     if (wizard === null) {
       throw new BadRequestError("Usuário não existe");
     } else if (wizard.password !== signInDto.password) {
+      throw new BadRequestError("Senha digitada está incorreta");
     }
 
     const payload = {
