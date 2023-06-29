@@ -9,7 +9,7 @@ import { AuthChecker } from "./components/AuthChecker";
 import { SignInRoute } from "./routes/SignInRoute";
 import { SignUpRoute } from "./routes/SignUpRoute";
 import { WizardRoute } from "./routes/WizardRoute";
-
+import { SpellStoreRoute } from "./routes/SpellStoreRoute";
 export function App() {
   return (
     <HistoryRouter history={browserHistory}>
@@ -19,6 +19,7 @@ export function App() {
         <Route path="/" element={<SignInRoute />} />
         <Route path="/criar-conta" element={<SignUpRoute />} />
         <Route path="/wizard" element={<WizardRoute />} />
+        <Route path="/spellstore" element={<SpellStoreRoute />} />
       </Routes>
     </HistoryRouter>
   );

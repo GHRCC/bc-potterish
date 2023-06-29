@@ -36,7 +36,6 @@ export function AppBar() {
     <header className="bg-white shadow-md flex flex-row items-center justify-between p-3 sticky top-0 left-0 z-30">
       <div className="flex flex-row items-center gap-8">
         <Link to="/" className="flex flex-row items-center gap-2">
-          <img src="/logo.png" alt="Logo" className="h-[36px]" />
           <h1 className="font-bold uppercase text-2xl font-[VT323]">
             {texts.appTitle}
           </h1>

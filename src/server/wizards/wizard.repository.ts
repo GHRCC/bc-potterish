@@ -1,7 +1,8 @@
 import { Service } from "typedi";
-import { Wizard } from "./wizard.model"; //depois que eu importar a model, posso usar os métodos
+import { IWizard, Wizard } from "./wizard.model"; //depois que eu importar a model, posso usar os métodos
 import { CreateWizardDto } from "./dtos/create-wizard.dto";
 import { UpdateWizardDto } from "./dtos/update-wizard.dto";
+import { ISpell } from "../spells/spells.schema";
 @Service()
 export class WizardRepository {
   constructor() {}
@@ -28,5 +29,38 @@ export class WizardRepository {
   async delete(username: string) {
     const wizard = await Wizard.findOneAndDelete({ username }).lean();
     return wizard;
+  }
+
+  async addSpell(username: string, spell: ISpell, nextCredit?: number) {
+    await Wizard.updateOne(
+      { username },
+      {
+        credit: nextCredit,
+        $push: {
+          spells: spell,
+        },
+      }
+    );
+  }
+
+  async updateSpell(username: string, spell: ISpell) {
+    await Wizard.updateOne(
+      {
+        username,
+      },
+      {
+        $set: {
+          spells: spell,
+        },
+      }
+    );
+  }
+
+  async findSpelldex(username: string) {
+    const wizard = (await Wizard.findOne({ username }, undefined, {
+      fields: ["spells"],
+    }).lean()) as IWizard;
+    const spelldex = wizard.spell;
+    return spelldex;
   }
 }

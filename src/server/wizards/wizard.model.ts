@@ -2,6 +2,7 @@
 import { model, Schema } from "mongoose";
 
 export type IWizard = {
+  spell: any;
   //o I significa Interface
   username: string;
   name: string;
