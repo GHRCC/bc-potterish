@@ -5,12 +5,12 @@ import { Title } from "../components/Title";
 import { Button } from "../components/Button";
 
 const texts = {
-  title: "Criar conta",
-  submit: "Enviar",
-  namePlaceholder: "Nome",
-  surnamePlaceholder: "Sobrenome",
-  usernamePlaceholder: "Nome de usuário",
-  passwordPlaceholder: "Senha",
+  title: "Create Account",
+  submit: "Submit",
+  namePlaceholder: "Name",
+  surnamePlaceholder: "Surname",
+  usernamePlaceholder: "Username",
+  passwordPlaceholder: "Password",
 };
 
 export function SignUpRoute() {
