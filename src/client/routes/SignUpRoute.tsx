@@ -36,7 +36,7 @@ export function SignUpRoute() {
       username,
       password,
     });
-
+    console.log(response);
     setWizard(response.data.wizard);
     setIsAuthenticated(true);
     AuthToken.set(response.data.token);

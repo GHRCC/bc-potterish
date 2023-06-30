@@ -1,6 +1,7 @@
 import "reflect-metadata";
-import * as dotenv from "dotenv";
-dotenv.config();
+//  import * as dotenv from "dotenv";
+//  dotenv.config();
+require("dotenv").config({ path: __dirname + "/./../../.env" });
 import { createExpressServer, useContainer } from "routing-controllers";
 import { Container } from "typedi";
 import { connect } from "mongoose";
@@ -19,6 +20,6 @@ createExpressServer({
   authorizationChecker,
 }).listen(port, host, async () => {
   console.log("texto");
-  await connect(process.env.DATABASE_URL as string);
+  await connect("mongodb://aluno:aluno123@142.93.174.194:27017/");
   console.log(`Servidor express iniciado em http://${host}:${port}.`);
 });
