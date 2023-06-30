@@ -1,5 +1,5 @@
 import { Service } from "typedi";
-import jwt, { sign, verify } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 
 const jwtSecret = process.env.JWT_SECRET as string;
 @Service()

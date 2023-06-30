@@ -11,7 +11,7 @@ const texts = {
 };
 
 export const api = axios.create({
-  baseURL: import.meta.env.VITE_API_PATH,
+  baseURL: "localhost:9000",
 });
 
 api.interceptors.request.use((config) => {
@@ -31,14 +31,14 @@ api.interceptors.response.use(
   },
   (error) => {
     setIsLoading(false);
-    const httpStatus = error.response.status;
-    const data = error.response.data;
-    if (httpStatus === 400) {
-      errorToast(data.message);
-    } else if (httpStatus === 401) {
-      AuthToken.remove();
-      errorToast(texts.authorizationError);
-      browserHistory.push("/");
-    }
+    // const httpStatus = error.response.status;
+    //const data = error.response.data;
+    // if (httpStatus === 400) {
+    //     errorToast(data.message);
+    //   } else if (httpStatus === 401) {
+    //     AuthToken.remove();
+    //     errorToast(texts.authorizationError);
+    //     browserHistory.push("/");
+    //   }
   }
 );
