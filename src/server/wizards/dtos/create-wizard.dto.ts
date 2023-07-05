@@ -1,7 +1,7 @@
 import { MinLength, MaxLength, Matches, IsLowercase } from "class-validator";
 import { IWizard } from "../wizard.model";
 
-export class CreateWizardDto implements IWizard {
+export class CreateWizardDto implements Partial<IWizard> {
   @MinLength(4)
   @MaxLength(16)
   @IsLowercase()

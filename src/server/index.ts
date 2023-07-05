@@ -1,6 +1,6 @@
 import "reflect-metadata";
-import dotenv from "dotenv";
-import dotenvExpand from "dotenv-expand";
+import * as dotenv from "dotenv";
+dotenv.config();
 import { createExpressServer, useContainer } from "routing-controllers";
 import { Container } from "typedi";
 import { connect } from "mongoose";
@@ -11,7 +11,7 @@ import { authorizationChecker } from "./auth/checkers/authorization.checker";
 useContainer(Container);
 
 const myEnv = dotenv.config();
-dotenvExpand.expand(myEnv);
+
 console.log(process.env);
 const port = 9000;
 const host = "0.0.0.0";

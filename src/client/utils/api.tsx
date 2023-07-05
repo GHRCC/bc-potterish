@@ -9,9 +9,8 @@ const setIsLoading = useGlobalStore.getState().setIsLoading;
 const texts = {
   authorizationError: "Your connection has expired. Please, log in",
 };
-
 export const api = axios.create({
-  baseURL: "localhost:9000",
+  baseURL: "http://localhost:9000/",
 });
 
 api.interceptors.request.use((config) => {

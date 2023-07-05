@@ -29,7 +29,7 @@ export class AuthController {
   async signUp(@Body() signUpDto: SignUpDto) {
     // const response = await this.authService.signUp(signUpDto);
     // return response;
-    const { name, username, surname, password } = request.body;
+    const { name, username, surname, password } = signUpDto;
     const user = await this.authService.signUp({
       name,
       username,
@@ -37,7 +37,7 @@ export class AuthController {
       password,
     });
     console.log(signUpDto);
-    return response.json(user);
+    return user;
   }
 
   @Authorized()
